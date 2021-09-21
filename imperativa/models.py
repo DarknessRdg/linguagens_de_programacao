@@ -73,7 +73,7 @@ class Venda:
 
 
 @dataclass
-class Alugel:
+class Aluguel:
     agencia: str
     final: datetime.datetime
     vendedor: Corretor

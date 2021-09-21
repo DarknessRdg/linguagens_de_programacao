@@ -1,6 +1,6 @@
 import datetime
 
-from models import Terreno, Imovel, Venda, Pessoa, Corretor, Alugel
+from models import Terreno, Imovel, Venda, Pessoa, Corretor, Aluguel
 from consultas import (
     imoveis_a_venda_por_tipo,
     terrenos_a_venda_por_tamanho,
@@ -46,7 +46,7 @@ VENDAS = [
 ]
 
 ALUGUEIS = [
-    Alugel(agencia='suacasa', final=NOW + datetime.timedelta(days=2), vendedor=CORRETOR[0], cliente=PESSOAS[0], propietario=PESSOAS[1], imovel=IMOVEIS[0])
+    Aluguel(agencia='suacasa', final=NOW + datetime.timedelta(days=2), vendedor=CORRETOR[0], cliente=PESSOAS[0], propietario=PESSOAS[1], imovel=IMOVEIS[0])
 ]
 
 if __name__ == '__main__':

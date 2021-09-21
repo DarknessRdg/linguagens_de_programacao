@@ -1,7 +1,7 @@
 import datetime
 from typing import List, Union
 
-from models import Imovel, Venda, Terreno, Alugel, Corretor
+from models import Imovel, Venda, Terreno, Aluguel, Corretor
 
 
 def imoveis_a_venda_por_tipo(
@@ -30,7 +30,7 @@ def terrenos_a_venda_por_tamanho(
 
 def imoveis_para_alugar_por_bairro(
         imoveis: List[Imovel],
-        alugueis: List[Alugel],
+        alugueis: List[Aluguel],
         bairro: str
 ) -> List[Imovel]:
     result = []
@@ -43,7 +43,7 @@ def imoveis_para_alugar_por_bairro(
 
 def imoveis_para_alugar_com_menos_de_2_anos_de_construcao(
         imoveis: List[Imovel],
-        alugueis: List[Alugel]
+        alugueis: List[Aluguel]
 ) -> List[Imovel]:
     result = []
     ano_atual = datetime.date.today().year
@@ -73,11 +73,13 @@ def imoveis_vendidos_por_corretor(
 
 
 def _esta_alugado(
-        alugueis: List[Alugel],
+        alugueis: List[Aluguel],
         imovel: Imovel
 ) -> bool:
+    now = datetime.datetime.now()
+
     for alugel in alugueis:
-        if alugel.imovel == imovel:
+        if alugel.imovel == imovel and alugel.final > now:
             return True
     return False
 
